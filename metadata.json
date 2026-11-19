@@ -1,0 +1,6 @@
+{
+  "name": "HSA Bunyo Dog Rescue",
+  "description": "Community-led dog rescue, adoption profiles, volunteer programs, and online donations in Bunyo, Wakiso District, Uganda.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
