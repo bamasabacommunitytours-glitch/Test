@@ -96,6 +96,24 @@ export interface VolunteerApplicationRecord {
   createdAt: string;
 }
 
+export interface ContactMessageRecord {
+  referenceId: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  topic: string;
+  message: string;
+  createdAt: string;
+}
+
+export const CONTACT_TOPICS = [
+  'Adoption & Rehoming Inquiry',
+  'Emergency Stray / Injured Dog Report (Wakiso & Kampala)',
+  'Volunteering & Entebbe Flight Buddy',
+  'Airtel Money Donation & Receipt Support',
+  'Sanctuary Visit & General Question',
+] as const;
+
 export const HERO_IMAGE_URL = '/src/assets/images/fig.%201.jpeg';
 export const CLINIC_IMAGE_URL = '/src/assets/images/fig.2.avif';
 export const VOLUNTEER_IMAGE_URL = '/src/assets/images/fig%204.avif';

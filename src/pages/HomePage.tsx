@@ -30,10 +30,10 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
                 <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
                   Bunyo Sanctuary · Wakiso District, Uganda
                 </p>
-                <h1 className="font-serif text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.1] font-medium tracking-tight text-zinc-900">
+                <h1 className="font-serif text-[clamp(2.75rem,4.8vw,4.5rem)] leading-[1.06] font-semibold tracking-tight text-zinc-900">
                   Every Ugandan street dog deserves safety, care, and a home.
                 </h1>
-                <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl">
+                <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed max-w-2xl">
                   HSA Bunyo rescues abandoned and injured dogs along the Kampala–Entebbe corridor, delivers community rabies clinics, and connects healed dogs with loving families locally and abroad.
                 </p>
               </div>
@@ -108,7 +108,7 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
               Adoption Profiles
             </p>
-            <h2 className="font-serif text-3xl font-medium text-zinc-900">
+            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
               Dogs waiting for a home
             </h2>
           </div>
@@ -138,7 +138,7 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
                 />
                 <div className="p-5 space-y-2.5">
                   <div className="flex items-baseline justify-between gap-2">
-                    <h3 className="font-serif text-xl font-medium text-zinc-900">
+                    <h3 className="font-serif text-2xl font-semibold text-zinc-900">
                       {dog.name}
                     </h3>
                     <span className="text-xs font-medium text-[#14532D]">
@@ -177,10 +177,10 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
               <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
                 Field Operations
               </p>
-              <h2 className="font-serif text-3xl font-medium text-zinc-900">
+              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
                 Sanctuary care paired with community prevention
               </h2>
-              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
                 Long-term change in Wakiso District requires more than kennels. Our Ugandan veterinary team travels monthly to nearby trading centers to treat tick fever, vaccinate against rabies, and offer free spay and neuter surgeries.
               </p>
               <div className="pt-2 rounded-lg overflow-hidden border border-zinc-200 bg-white">
@@ -228,10 +228,10 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
               Active Sanctuary Appeal
             </p>
-            <h2 className="font-serif text-2xl sm:text-3xl font-medium text-zinc-900">
+            <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
               {campaign.title}
             </h2>
-            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl">
               {campaign.subtitle}
             </p>
           </div>

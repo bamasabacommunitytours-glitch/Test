@@ -1,4 +1,4 @@
-import type { DogAgeGroup, DogProfile, DogSize } from '../data/rescueData';
+import type { DogAgeGroup, DogProfile, DogSize } from '../data/rescueData.js';
 
 export const USD_TO_UGX_RATE = 3700;
 
@@ -224,5 +224,33 @@ export function validateDonationSubmission(input: DonationSubmissionInput): Vali
       'Enter a valid Ugandan Airtel Money number (e.g. +256 704 290 817).';
   }
 
+  return errors;
+}
+
+export interface ContactMessageInput {
+  fullName: string;
+  email: string;
+  phone?: string;
+  topic: string;
+  message: string;
+}
+
+export function validateContactMessage(input: ContactMessageInput): ValidationErrors {
+  const errors: ValidationErrors = {};
+  if (!input.fullName?.trim() || input.fullName.trim().length < 2) {
+    errors.fullName = 'Please enter your full name.';
+  }
+  if (!validateEmail(input.email || '')) {
+    errors.email = 'Please enter a valid email address.';
+  }
+  if (input.phone?.trim() && input.phone.replace(/\D/g, '').length < 7) {
+    errors.phone = 'Please enter a valid phone or WhatsApp number.';
+  }
+  if (!input.topic?.trim()) {
+    errors.topic = 'Please select an inquiry topic.';
+  }
+  if (!input.message?.trim() || input.message.trim().length < 10) {
+    errors.message = 'Please write a brief message (minimum 10 characters).';
+  }
   return errors;
 }

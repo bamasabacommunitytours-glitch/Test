@@ -8,16 +8,18 @@ import {
   VOLUNTEER_ROLES,
   type AdoptionInquiryRecord,
   type CampaignSummary,
+  type ContactMessageRecord,
   type DogProfile,
   type DonationRecord,
   type VolunteerApplicationRecord,
-} from '../data/rescueData';
+} from '../data/rescueData.js';
 import {
   convertUgxToUsd,
   validateAdoptionInquiry,
+  validateContactMessage,
   validateDonationSubmission,
   validateVolunteerApplication,
-} from '../utils/rescueLogic';
+} from '../utils/rescueLogic.js';
 
 interface PersistedRescueState {
   dogs: DogProfile[];
@@ -25,6 +27,7 @@ interface PersistedRescueState {
   donations: DonationRecord[];
   adoptions: AdoptionInquiryRecord[];
   volunteers: VolunteerApplicationRecord[];
+  contacts: ContactMessageRecord[];
 }
 
 const DATA_DIR = process.env.VERCEL
@@ -38,7 +41,12 @@ function loadInitialState(): PersistedRescueState {
       const raw = fs.readFileSync(STATE_FILE, 'utf-8');
       const parsed = JSON.parse(raw) as PersistedRescueState;
       if (parsed && Array.isArray(parsed.dogs) && parsed.campaign) {
-        return parsed;
+        return {
+          ...parsed,
+          adoptions: Array.isArray(parsed.adoptions) ? parsed.adoptions : [],
+          volunteers: Array.isArray(parsed.volunteers) ? parsed.volunteers : [],
+          contacts: Array.isArray(parsed.contacts) ? parsed.contacts : [],
+        };
       }
     }
   } catch {
@@ -50,6 +58,7 @@ function loadInitialState(): PersistedRescueState {
     donations: structuredClone(INITIAL_DONATIONS),
     adoptions: [],
     volunteers: [],
+    contacts: [],
   };
 }
 
@@ -67,6 +76,16 @@ function saveState(state: PersistedRescueState): void {
 export function createApiApp(): express.Express {
   const app = express();
   app.use(express.json());
+
+  // Restore full /api/* path when Vercel rewrites /api/(.*) -> /api/index?__path=$1
+  app.use((req, _res, next) => {
+    const rawPath = req.query?.__path;
+    if (typeof rawPath === 'string' && rawPath.length > 0) {
+      const clean = rawPath.replace(/^\/+/, '');
+      req.url = `/api/${clean}`;
+    }
+    next();
+  });
 
   const state = loadInitialState();
 
@@ -191,6 +210,33 @@ export function createApiApp(): express.Express {
       receipt,
       campaign: state.campaign,
       donations: state.donations.slice(0, 12),
+    });
+  });
+
+  app.post('/api/contact', (req, res) => {
+    const errors = validateContactMessage(req.body ?? {});
+    if (Object.keys(errors).length > 0) {
+      res.status(400).json({ error: 'Validation failed', fieldErrors: errors });
+      return;
+    }
+
+    const referenceId = `HSA-MSG-${Math.floor(1000 + Math.random() * 9000)}`;
+    const contact: ContactMessageRecord = {
+      referenceId,
+      fullName: String(req.body.fullName).trim(),
+      email: String(req.body.email).trim(),
+      phone: String(req.body.phone || '').trim(),
+      topic: String(req.body.topic).trim(),
+      message: String(req.body.message).trim(),
+      createdAt: new Date().toISOString(),
+    };
+
+    state.contacts.unshift(contact);
+    saveState(state);
+
+    res.status(201).json({
+      contact,
+      contactCount: state.contacts.length,
     });
   });
 

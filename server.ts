@@ -2,7 +2,7 @@ import express from 'express';
 import http from 'http';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
-import { createApiApp } from './src/server/createApp';
+import { createApiApp } from './src/server/createApp.js';
 
 async function startServer() {
   const app = createApiApp();

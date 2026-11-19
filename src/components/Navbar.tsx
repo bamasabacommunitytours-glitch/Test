@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-export type RoutePath = '/' | '/adopt' | '/volunteer' | '/about' | '/donate' | string;
+export type RoutePath = '/' | '/adopt' | '/volunteer' | '/about' | '/contact' | '/donate' | string;
 
 interface NavbarProps {
   currentPath: RoutePath;
@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { label: 'Adopt', path: '/adopt' },
   { label: 'Volunteer', path: '/volunteer' },
   { label: 'Our Work', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 export function Navbar({ currentPath, onNavigate }: NavbarProps) {
@@ -36,7 +37,7 @@ export function Navbar({ currentPath, onNavigate }: NavbarProps) {
         <a
           href="/"
           onClick={(e) => handleLinkClick(e, '/')}
-          className="font-serif text-xl font-semibold tracking-tight text-zinc-900 whitespace-nowrap shrink-0 hover:text-[#14532D] transition-colors"
+          className="font-serif text-2xl font-bold tracking-tight text-zinc-900 whitespace-nowrap shrink-0 hover:text-[#14532D] transition-colors"
         >
           HSA Bunyo
         </a>
@@ -50,7 +51,7 @@ export function Navbar({ currentPath, onNavigate }: NavbarProps) {
                 key={item.path}
                 href={item.path}
                 onClick={(e) => handleLinkClick(e, item.path)}
-                className={`text-sm font-medium whitespace-nowrap shrink-0 py-1 border-b-2 transition-colors ${
+                className={`text-[15px] font-medium whitespace-nowrap shrink-0 py-1 border-b-2 transition-colors ${
                   active
                     ? 'text-[#14532D] border-[#14532D]'
                     : 'text-zinc-600 border-transparent hover:text-zinc-900 hover:border-zinc-300'

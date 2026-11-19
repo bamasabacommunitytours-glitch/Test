@@ -64,6 +64,15 @@ export function Footer({ onNavigate }: FooterProps) {
                 Donate Online
               </a>
             </li>
+            <li>
+              <a
+                href="/contact"
+                onClick={(e) => handleLink(e, '/contact')}
+                className="hover:text-[#14532D] transition-colors"
+              >
+                Contact Us
+              </a>
+            </li>
           </ul>
         </div>
 

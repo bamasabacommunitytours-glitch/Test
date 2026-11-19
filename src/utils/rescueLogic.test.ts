@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { INITIAL_DOGS } from '../data/rescueData';
+import { INITIAL_DOGS } from '../data/rescueData.js';
 import {
   convertUgxToUsd,
   convertUsdToUgx,
@@ -8,10 +8,11 @@ import {
   formatCurrency,
   getImpactStatement,
   validateAdoptionInquiry,
+  validateContactMessage,
   validateDonationSubmission,
   validateUgandaMobileMoneyPhone,
   validateVolunteerApplication,
-} from './rescueLogic';
+} from './rescueLogic.js';
 
 test('filterDogs filters accurately by size, age, compatibility, and search query', () => {
   const mediumDogs = filterDogs(INITIAL_DOGS, {
@@ -123,4 +124,26 @@ test('form validators catch missing/invalid fields and accept complete valid pay
     mobilePhone: '+256 704 290 817',
   });
   assert.deepEqual(goodDonation, {});
+
+  const badContact = validateContactMessage({
+    fullName: '',
+    email: 'invalid',
+    phone: '12',
+    topic: '',
+    message: 'hi',
+  });
+  assert.ok(badContact.fullName);
+  assert.ok(badContact.email);
+  assert.ok(badContact.phone);
+  assert.ok(badContact.topic);
+  assert.ok(badContact.message);
+
+  const goodContact = validateContactMessage({
+    fullName: 'Samuel Okello',
+    email: 'samuel@example.org',
+    phone: '+256 704 290 817',
+    topic: 'General Sanctuary Visit',
+    message: 'I would like to visit the Bunyo sanctuary this Saturday morning with kibble supplies.',
+  });
+  assert.deepEqual(goodContact, {});
 });

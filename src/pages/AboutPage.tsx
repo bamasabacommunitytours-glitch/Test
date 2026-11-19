@@ -30,10 +30,10 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
         <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
           About HSA Bunyo · Est. 2021
         </p>
-        <h1 className="font-serif text-4xl sm:text-5xl font-medium text-zinc-900">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-zinc-900">
           Community-rooted animal welfare in Wakiso District
         </h1>
-        <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
+        <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed">
           Humane Sanctuary Alliance (HSA) Bunyo began when local residents and Makerere veterinary alumni banded together to replace inhumane stray culling with vaccination, sterilization, and compassionate rehoming.
         </p>
       </header>
@@ -41,7 +41,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       {/* Editorial Essay + Clinic Image */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-6 space-y-5 max-w-prose">
-          <h2 className="font-serif text-3xl font-medium text-zinc-900">
+          <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
             Why Bunyo &amp; the Entebbe Corridor
           </h2>
           <p className="text-base text-zinc-700 leading-relaxed first-letter:text-5xl first-letter:font-serif first-letter:font-medium first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-[#14532D]">
@@ -115,7 +115,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
       {/* Leadership Team */}
       <section className="space-y-6">
-        <h2 className="font-serif text-3xl font-medium text-zinc-900">
+        <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
           Sanctuary Leadership Team
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

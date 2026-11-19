@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import type { AdoptionInquiryRecord, DogProfile } from '../data/rescueData';
 import { formatCurrency, validateAdoptionInquiry, type ValidationErrors } from '../utils/rescueLogic';
+import { postApiJson } from '../utils/apiClient';
 import { ResilientImage } from '../components/ResilientImage';
 
 interface DogDetailPageProps {
@@ -66,21 +67,21 @@ export function DogDetailPage({ dog, onNavigate, onInquirySubmitted }: DogDetail
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/adoptions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        if (data.fieldErrors) setErrors(data.fieldErrors);
-        setSubmitError(data.error || 'Could not submit inquiry. Please review your details.');
+      const result = await postApiJson<{ inquiry: AdoptionInquiryRecord; dog: DogProfile }>(
+        '/api/adoptions',
+        payload
+      );
+      if (!result.ok || !result.data) {
+        if (result.fieldErrors) setErrors(result.fieldErrors);
+        setSubmitError(result.error || 'Could not submit inquiry. Please review your details.');
         return;
       }
-      setConfirmation(data.inquiry);
-      onInquirySubmitted(data.dog);
+      setConfirmation(result.data.inquiry);
+      onInquirySubmitted(result.data.dog);
     } catch {
-      setSubmitError('Network error while submitting your inquiry. Please try again.');
+      setSubmitError(
+        'Connection issue submitting your inquiry. Please try again or reach us on WhatsApp +256 704 290 817.'
+      );
     } finally {
       setSubmitting(false);
     }
@@ -106,7 +107,7 @@ export function DogDetailPage({ dog, onNavigate, onInquirySubmitted }: DogDetail
             <p className="text-xs font-medium uppercase tracking-widest text-[#14532D]">
               {dog.status} · {dog.location}
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl font-medium text-zinc-900">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-zinc-900">
               {dog.name}
             </h1>
             <p className="text-sm text-zinc-500">

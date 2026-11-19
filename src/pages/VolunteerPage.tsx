@@ -6,6 +6,7 @@ import {
   type VolunteerApplicationRecord,
 } from '../data/rescueData';
 import { validateVolunteerApplication, type ValidationErrors } from '../utils/rescueLogic';
+import { postApiJson } from '../utils/apiClient';
 import { ResilientImage } from '../components/ResilientImage';
 
 interface VolunteerPageProps {
@@ -61,21 +62,21 @@ export function VolunteerPage({
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/volunteers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        if (data.fieldErrors) setErrors(data.fieldErrors);
-        setSubmitError(data.error || 'Could not submit volunteer application.');
+      const result = await postApiJson<{
+        application: VolunteerApplicationRecord;
+        volunteerCount: number;
+      }>('/api/volunteers', payload);
+      if (!result.ok || !result.data) {
+        if (result.fieldErrors) setErrors(result.fieldErrors);
+        setSubmitError(result.error || 'Could not submit volunteer application.');
         return;
       }
-      setConfirmation(data.application);
-      onApplicationSubmitted(data.volunteerCount);
+      setConfirmation(result.data.application);
+      onApplicationSubmitted(result.data.volunteerCount);
     } catch {
-      setSubmitError('Network error while submitting your application. Please try again.');
+      setSubmitError(
+        'Connection issue submitting your application. Please try again or reach us on WhatsApp +256 704 290 817.'
+      );
     } finally {
       setSubmitting(false);
     }
@@ -89,10 +90,10 @@ export function VolunteerPage({
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
             Volunteer &amp; Flight-Buddy Program
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl font-medium text-zinc-900">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-zinc-900">
             Lend a steady hand in Wakiso or from Entebbe
           </h1>
-          <p className="text-base text-zinc-600 leading-relaxed max-w-xl">
+          <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed max-w-2xl">
             Our small Ugandan sanctuary team welcomes local Kampala/Wakiso volunteers, visiting veterinary professionals, and travelers departing Entebbe Airport (EBB) who can serve as flight buddies for adopted dogs.
           </p>
           <p className="text-xs text-zinc-500 tabular-nums pt-1">
@@ -121,7 +122,7 @@ export function VolunteerPage({
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
             Available Roles
           </p>
-          <h2 className="font-serif text-3xl font-medium text-zinc-900">
+          <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
             Four ways to support our dogs
           </h2>
         </div>
@@ -205,10 +206,10 @@ export function VolunteerPage({
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
             Orientation &amp; Onboarding
           </p>
-          <h2 className="font-serif text-3xl font-medium text-zinc-900">
+          <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
             Submit a volunteer application
           </h2>
-          <p className="text-sm text-zinc-600 leading-relaxed">
+          <p className="text-base text-zinc-600 leading-relaxed">
             Once submitted, our Wakiso volunteer coordinator reviews your schedule and arranges a brief WhatsApp or in-person sanctuary orientation. Rabies pre-exposure vaccination is recommended for clinical roles and required for extended kennel shifts.
           </p>
           <dl className="pt-3 border-t border-zinc-200 space-y-2 text-sm">

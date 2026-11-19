@@ -10,6 +10,7 @@ import {
   type PaymentMethod,
   type ValidationErrors,
 } from '../utils/rescueLogic';
+import { postApiJson } from '../utils/apiClient';
 
 interface DonatePageProps {
   campaign: CampaignSummary;
@@ -95,22 +96,27 @@ export function DonatePage({
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/donations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        if (data.fieldErrors) setErrors(data.fieldErrors);
-        setSubmitError(data.error || 'Unable to complete donation. Please check your details.');
+      const result = await postApiJson<{
+        receipt: DonationRecord;
+        campaign: CampaignSummary;
+        donations: DonationRecord[];
+      }>('/api/donations', payload);
+      if (!result.ok || !result.data) {
+        if (result.fieldErrors) setErrors(result.fieldErrors);
+        setSubmitError(result.error || 'Unable to complete donation. Please check your details.');
         return;
       }
-      setReceipt(data.receipt);
-      onDonationComplete(data.receipt, data.campaign, data.donations);
+      setReceipt(result.data.receipt);
+      onDonationComplete(
+        result.data.receipt,
+        result.data.campaign,
+        result.data.donations
+      );
       setMobilePhone('');
     } catch {
-      setSubmitError('Network error processing donation. Please try again.');
+      setSubmitError(
+        'Connection issue processing donation. Please try again or send directly via Airtel Money +256 704 290 817.'
+      );
     } finally {
       setSubmitting(false);
     }
@@ -126,10 +132,10 @@ export function DonatePage({
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
             Online Giving · Airtel Money Uganda (+256 704 290 817)
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl font-medium text-zinc-900">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-zinc-900">
             Fund urgent care for Bunyo’s dogs
           </h1>
-          <p className="text-base text-zinc-600 leading-relaxed max-w-2xl">
+          <p className="text-lg sm:text-xl text-zinc-600 leading-relaxed max-w-2xl">
             100% of online contributions go directly to HSA Bunyo Dog Rescue in Wakiso District. Choose USD or Ugandan Shillings (UGX) and receive an instant itemized sanctuary receipt.
           </p>
         </div>

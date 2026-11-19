@@ -40,10 +40,10 @@ export function AdoptPage({ dogs, onNavigate }: AdoptPageProps) {
         <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
           Adoption &amp; Foster Directory
         </p>
-        <h1 className="font-serif text-4xl sm:text-5xl font-medium text-zinc-900">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-zinc-900">
           Meet our dogs in Uganda
         </h1>
-        <p className="text-base text-zinc-600 max-w-2xl leading-relaxed">
+        <p className="text-lg sm:text-xl text-zinc-600 max-w-3xl leading-relaxed">
           Every dog at HSA Bunyo receives full tick-borne screening, Rabies and DHPP vaccinations, microchipping, and spay or neuter care. We place dogs across Kampala, Entebbe, and internationally with verified flight-buddy transport.
         </p>
       </header>

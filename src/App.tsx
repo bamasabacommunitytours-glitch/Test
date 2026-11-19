@@ -16,6 +16,7 @@ import { DogDetailPage } from './pages/DogDetailPage';
 import { VolunteerPage } from './pages/VolunteerPage';
 import { AboutPage } from './pages/AboutPage';
 import { DonatePage } from './pages/DonatePage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() =>
@@ -111,6 +112,9 @@ export default function App() {
           onDonationComplete={handleDonationComplete}
         />
       );
+    }
+    if (currentPath === '/contact') {
+      return <ContactPage onNavigate={navigate} />;
     }
     return <HomePage dogs={dogs} campaign={campaign} onNavigate={navigate} />;
   };
