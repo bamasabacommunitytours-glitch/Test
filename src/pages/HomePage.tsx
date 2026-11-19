@@ -260,7 +260,7 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
             </div>
             <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
               <span className="text-xs text-zinc-500 tabular-nums">
-                Supported by {campaign.supportersCount} donors via MTN MoMo &amp; Airtel Money
+                Supported by {campaign.supportersCount} donors via Airtel Money
               </span>
               <button
                 type="button"

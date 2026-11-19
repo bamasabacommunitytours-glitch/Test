@@ -87,7 +87,7 @@ export function validateEmail(email: string): boolean {
 
 export function validateUgandaMobileMoneyPhone(
   phone: string,
-  provider: 'mtn_momo' | 'airtel_money'
+  _provider: 'airtel_money' = 'airtel_money'
 ): boolean {
   const cleaned = phone.replace(/[\s\-()]/g, '');
   let localNine = '';
@@ -106,9 +106,6 @@ export function validateUgandaMobileMoneyPhone(
   }
 
   const prefix = localNine.slice(0, 2);
-  if (provider === 'mtn_momo') {
-    return prefix === '77' || prefix === '78' || prefix === '76';
-  }
   return prefix === '70' || prefix === '75' || prefix === '74';
 }
 
@@ -187,7 +184,7 @@ export function validateVolunteerApplication(input: VolunteerApplicationInput): 
   return errors;
 }
 
-export type PaymentMethod = 'mtn_momo' | 'airtel_money';
+export type PaymentMethod = 'airtel_money';
 
 export interface DonationSubmissionInput {
   donorName: string;
@@ -220,16 +217,11 @@ export function validateDonationSubmission(input: DonationSubmissionInput): Vali
     errors.fund = 'Please choose a sanctuary fund allocation.';
   }
 
-  if (input.paymentMethod !== 'mtn_momo' && input.paymentMethod !== 'airtel_money') {
-    errors.paymentMethod = 'Please select MTN Mobile Money or Airtel Money.';
-  } else {
-    const provider = input.paymentMethod;
-    if (!validateUgandaMobileMoneyPhone(input.mobilePhone || '', provider)) {
-      errors.mobilePhone =
-        provider === 'mtn_momo'
-          ? 'Enter a valid Ugandan MTN MoMo number (e.g. +256 772 419 820).'
-          : 'Enter a valid Ugandan Airtel Money number (e.g. +256 701 419 820).';
-    }
+  if (input.paymentMethod !== 'airtel_money') {
+    errors.paymentMethod = 'Airtel Money Uganda is currently the supported payment method.';
+  } else if (!validateUgandaMobileMoneyPhone(input.mobilePhone || '', 'airtel_money')) {
+    errors.mobilePhone =
+      'Enter a valid Ugandan Airtel Money number (e.g. +256 704 290 817).';
   }
 
   return errors;

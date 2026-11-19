@@ -39,7 +39,7 @@ export function DonatePage({
   const [currency, setCurrency] = useState<'USD' | 'UGX'>('USD');
   const [amountInput, setAmountInput] = useState<string>('65');
   const [fund, setFund] = useState<string>(FUNDS[0]);
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('mtn_momo');
+  const [paymentMethod] = useState<PaymentMethod>('airtel_money');
 
   const [donorName, setDonorName] = useState('');
   const [email, setEmail] = useState('');
@@ -124,7 +124,7 @@ export function DonatePage({
       <header className="border-b border-zinc-200 pb-6 lg:pb-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
         <div className="lg:col-span-7 space-y-3">
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
-            Online Giving · MTN MoMo &amp; Airtel Money
+            Online Giving · Airtel Money Uganda (+256 704 290 817)
           </p>
           <h1 className="font-serif text-4xl sm:text-5xl font-medium text-zinc-900">
             Fund urgent care for Bunyo’s dogs
@@ -422,59 +422,40 @@ export function DonatePage({
               {/* Step 4: Payment Method */}
               <div className="space-y-4 border-t border-zinc-200 pt-6">
                 <span className="block text-xs font-medium text-zinc-800">
-                  Secure Payment Method
+                  Payment Method · Airtel Money Uganda
                 </span>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5" role="group" aria-label="Payment method">
-                  <button
-                    type="button"
-                    onClick={() => setPaymentMethod('mtn_momo')}
-                    aria-pressed={paymentMethod === 'mtn_momo'}
-                    className={`py-2.5 px-3 text-xs font-medium rounded-md border transition-colors cursor-pointer ${
-                      paymentMethod === 'mtn_momo'
-                        ? 'bg-[#14532D] text-white border-[#14532D]'
-                        : 'bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400'
-                    }`}
-                  >
-                    MTN Mobile Money
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setPaymentMethod('airtel_money')}
-                    aria-pressed={paymentMethod === 'airtel_money'}
-                    className={`py-2.5 px-3 text-xs font-medium rounded-md border transition-colors cursor-pointer ${
-                      paymentMethod === 'airtel_money'
-                        ? 'bg-[#14532D] text-white border-[#14532D]'
-                        : 'bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400'
-                    }`}
-                  >
-                    Airtel Money Uganda
-                  </button>
+                <div className="bg-emerald-50/70 border border-emerald-200 rounded-md p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-wider text-[#14532D]">
+                      Official Airtel Money Donation Number
+                    </p>
+                    <p className="text-xs text-zinc-600 mt-0.5">
+                      Registered to HSA Bunyo Dog Rescue · Wakiso District
+                    </p>
+                  </div>
+                  <p className="font-mono text-base font-semibold text-zinc-900 tabular-nums whitespace-nowrap">
+                    +256 704 290 817
+                  </p>
                 </div>
 
                 <div className="bg-zinc-50 border border-zinc-200 rounded-md p-4 space-y-2">
                   <label htmlFor="don-momo-phone" className="block text-xs font-medium text-zinc-800">
-                    {paymentMethod === 'mtn_momo'
-                      ? 'MTN Mobile Money Number (077 / 078 / 076)'
-                      : 'Airtel Money Number (070 / 075 / 074)'}
+                    Your Airtel Money Number (070 / 075 / 074)
                   </label>
                   <input
                     id="don-momo-phone"
                     type="tel"
                     value={mobilePhone}
                     onChange={(e) => setMobilePhone(e.target.value)}
-                    placeholder={
-                      paymentMethod === 'mtn_momo'
-                        ? '+256 772 419 820'
-                        : '+256 701 419 820'
-                    }
+                    placeholder="+256 704 290 817"
                     className="w-full h-10 px-3 font-mono text-sm bg-white border border-zinc-300 rounded-md"
                   />
                   {errors.mobilePhone && (
                     <p className="text-xs text-red-700">{errors.mobilePhone}</p>
                   )}
                   <p className="text-xs text-zinc-500">
-                    A Mobile Money confirmation prompt is initiated and masked on your receipt.
+                    Contributions settle to Airtel Money +256 704 290 817 and only your last 3 digits appear on receipts.
                   </p>
                 </div>
 

@@ -50,14 +50,13 @@ test('currency conversion and formatting handle USD and UGX accurately', () => {
   assert.match(getImpactStatement(350), /Entebbe/i);
 });
 
-test('Ugandan Mobile Money phone validator distinguishes MTN and Airtel prefixes', () => {
-  assert.equal(validateUgandaMobileMoneyPhone('+256 772 419 820', 'mtn_momo'), true);
-  assert.equal(validateUgandaMobileMoneyPhone('0784123456', 'mtn_momo'), true);
-  assert.equal(validateUgandaMobileMoneyPhone('+256 701 419 820', 'mtn_momo'), false);
-
+test('Ugandan Mobile Money phone validator validates Airtel Money prefixes', () => {
+  assert.equal(validateUgandaMobileMoneyPhone('+256 704 290 817', 'airtel_money'), true);
   assert.equal(validateUgandaMobileMoneyPhone('+256 701 419 820', 'airtel_money'), true);
   assert.equal(validateUgandaMobileMoneyPhone('0752987654', 'airtel_money'), true);
+  assert.equal(validateUgandaMobileMoneyPhone('0741234567', 'airtel_money'), true);
   assert.equal(validateUgandaMobileMoneyPhone('+256 772 419 820', 'airtel_money'), false);
+  assert.equal(validateUgandaMobileMoneyPhone('0784123456', 'airtel_money'), false);
 });
 
 test('form validators catch missing/invalid fields and accept complete valid payloads', () => {
@@ -107,8 +106,8 @@ test('form validators catch missing/invalid fields and accept complete valid pay
     amount: 5000,
     frequency: 'one-time',
     fund: 'Emergency Veterinary Care',
-    paymentMethod: 'mtn_momo',
-    mobilePhone: '0701123456',
+    paymentMethod: 'airtel_money',
+    mobilePhone: '0772123456',
   });
   assert.ok(badDonation.amount);
   assert.ok(badDonation.mobilePhone);
@@ -120,8 +119,8 @@ test('form validators catch missing/invalid fields and accept complete valid pay
     amount: 65,
     frequency: 'one-time',
     fund: 'Emergency Veterinary Care',
-    paymentMethod: 'mtn_momo',
-    mobilePhone: '+256 772 419 820',
+    paymentMethod: 'airtel_money',
+    mobilePhone: '+256 704 290 817',
   });
   assert.deepEqual(goodDonation, {});
 });

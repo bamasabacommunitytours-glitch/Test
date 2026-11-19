@@ -90,6 +90,10 @@ export function Footer({ onNavigate }: FooterProps) {
               </dd>
             </div>
             <div className="flex justify-between gap-4 border-b border-zinc-200 pb-1.5">
+              <dt className="text-zinc-500">Airtel Money Donations</dt>
+              <dd className="text-zinc-900 font-mono text-xs pt-0.5">+256 704 290 817</dd>
+            </div>
+            <div className="flex justify-between gap-4 border-b border-zinc-200 pb-1.5">
               <dt className="text-zinc-500">Care Coordinator</dt>
               <dd className="text-zinc-900">
                 <a

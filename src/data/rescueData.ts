@@ -361,7 +361,7 @@ export const INITIAL_DONATIONS: DonationRecord[] = [
     currency: 'UGX',
     frequency: 'one-time',
     fund: 'Community Rabies & Spay Clinics',
-    methodLabel: 'MTN MoMo ••• 819',
+    methodLabel: 'Airtel Money ••• 819',
     dedication: 'In gratitude for Nambi’s clinic team',
     createdAt: '2026-11-18T14:20:00.000Z',
   },
@@ -373,7 +373,7 @@ export const INITIAL_DONATIONS: DonationRecord[] = [
     currency: 'USD',
     frequency: 'monthly',
     fund: 'Emergency Veterinary Care',
-    methodLabel: 'MTN MoMo ••• 618',
+    methodLabel: 'Airtel Money ••• 618',
     createdAt: '2026-11-17T09:15:00.000Z',
   },
   {

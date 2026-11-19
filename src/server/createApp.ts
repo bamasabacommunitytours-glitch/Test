@@ -167,10 +167,7 @@ export function createApiApp(): express.Express {
 
     // Mask mobile phone digits before storing or returning
     const digits = String(payload.mobilePhone || '').replace(/\D/g, '');
-    const methodLabel =
-      payload.paymentMethod === 'mtn_momo'
-        ? `MTN MoMo ••• ${digits.slice(-3) || '000'}`
-        : `Airtel Money ••• ${digits.slice(-3) || '000'}`;
+    const methodLabel = `Airtel Money ••• ${digits.slice(-3) || '000'}`;
 
     const receipt: DonationRecord = {
       id: `HSA-DON-${Math.floor(1000 + Math.random() * 9000)}`,
