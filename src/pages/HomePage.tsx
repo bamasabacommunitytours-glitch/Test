@@ -23,9 +23,9 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
     <div>
       {/* Hero Split */}
       <section className="border-b border-zinc-200 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
-            <div className="lg:col-span-6 flex flex-col justify-between py-2">
+        <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8 lg:py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-6 flex flex-col justify-center py-2">
               <div className="space-y-5">
                 <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
                   Bunyo Sanctuary · Wakiso District, Uganda
@@ -33,12 +33,12 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
                 <h1 className="font-serif text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.1] font-medium tracking-tight text-zinc-900">
                   Every Ugandan street dog deserves safety, care, and a home.
                 </h1>
-                <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-xl">
+                <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl">
                   HSA Bunyo rescues abandoned and injured dogs along the Kampala–Entebbe corridor, delivers community rabies clinics, and connects healed dogs with loving families locally and abroad.
                 </p>
               </div>
 
-              <div className="pt-8 flex flex-wrap items-center gap-5">
+              <div className="pt-7 flex flex-wrap items-center gap-5">
                 <button
                   type="button"
                   onClick={() => onNavigate('/adopt')}
@@ -58,11 +58,11 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
             </div>
 
             <div className="lg:col-span-6 flex flex-col">
-              <div className="flex-1 rounded-lg overflow-hidden border border-zinc-200 bg-zinc-100">
+              <div className="rounded-lg overflow-hidden border border-zinc-200 bg-zinc-100">
                 <ResilientImage
                   src={HERO_IMAGE_URL}
                   alt="Ugandan rescue team members smiling with clinic paperwork and a gentle village dog at HSA Bunyo"
-                  aspectClassName="aspect-[16/10] lg:aspect-auto lg:h-full"
+                  aspectClassName="aspect-[16/10]"
                   className="w-full h-full object-cover object-top"
                   fallbackTitle="Bunyo Sanctuary Morning Care"
                 />
@@ -77,21 +77,21 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
 
       {/* Operational Utility Ribbon (Full-width 4-column strip below hero split) */}
       <section aria-label="Sanctuary operational metrics" className="border-b border-zinc-200 bg-zinc-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x divide-zinc-200">
-            <div className="py-6 pr-4 border-b border-r lg:border-b-0 lg:border-r-0 border-zinc-200">
+            <div className="py-5 pr-4 border-b border-r lg:border-b-0 lg:border-r-0 border-zinc-200">
               <p className="font-mono text-2xl font-semibold text-zinc-900 tabular-nums">42</p>
               <p className="text-xs text-zinc-600 mt-1">Rescued dogs currently in sanctuary care</p>
             </div>
-            <div className="py-6 pl-4 lg:px-6 border-b lg:border-b-0 border-zinc-200">
+            <div className="py-5 pl-4 lg:px-6 border-b lg:border-b-0 border-zinc-200">
               <p className="font-mono text-2xl font-semibold text-zinc-900 tabular-nums">186</p>
               <p className="text-xs text-zinc-600 mt-1">Dogs permanently rehomed since 2021</p>
             </div>
-            <div className="py-6 pr-4 lg:px-6 border-r lg:border-r-0 border-zinc-200">
+            <div className="py-5 pr-4 lg:px-6 border-r lg:border-r-0 border-zinc-200">
               <p className="font-mono text-2xl font-semibold text-zinc-900 tabular-nums">320+</p>
               <p className="text-xs text-zinc-600 mt-1">Community rabies &amp; spay treatments</p>
             </div>
-            <div className="py-6 pl-4 lg:pl-6">
+            <div className="py-5 pl-4 lg:pl-6">
               <p className="font-mono text-base sm:text-lg font-semibold text-zinc-900 tabular-nums">
                 Tue–Sun · 09:00–17:00
               </p>
@@ -102,8 +102,8 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
       </section>
 
       {/* Featured Adoption Profiles */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-zinc-200">
+      <section className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-10 lg:py-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200">
           <div className="space-y-2">
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
               Adoption Profiles
@@ -171,8 +171,8 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
 
       {/* Field Programs + Community Clinic Story */}
       <section className="border-y border-zinc-200 bg-zinc-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-10 lg:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-5 space-y-4">
               <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
                 Field Operations
@@ -187,7 +187,7 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
                 <ResilientImage
                   src={CLINIC_IMAGE_URL}
                   alt="Caretaker in medical gloves applying antiseptic wound care to a rescued tan dog at HSA Bunyo"
-                  aspectClassName="aspect-[4/3]"
+                  aspectClassName="aspect-[16/10]"
                   className="w-full h-full object-cover object-center"
                   fallbackTitle="Wakiso Community Vet Clinic"
                 />
@@ -199,7 +199,7 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
 
             <div className="lg:col-span-7 divide-y divide-zinc-200 border-t border-b border-zinc-200 bg-white rounded-lg px-6">
               {FIELD_PROGRAMS.map((program) => (
-                <div key={program.index} className="py-7 space-y-2">
+                <div key={program.index} className="py-5 space-y-2">
                   <div className="flex items-baseline gap-3">
                     <span className="font-mono text-xs text-zinc-400 tabular-nums">
                       {program.index}.
@@ -222,8 +222,8 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
       </section>
 
       {/* Transparent Medical & Sanctuary Appeal */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-16">
-        <div className="border border-zinc-200 rounded-lg bg-white p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <section className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-10 lg:py-12">
+        <div className="border border-zinc-200 rounded-lg bg-white p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-3">
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
               Active Sanctuary Appeal

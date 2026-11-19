@@ -119,9 +119,9 @@ export function DonatePage({
   const presets = currency === 'USD' ? USD_PRESETS : UGX_PRESETS;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-12">
+    <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8 lg:py-10 space-y-8 lg:space-y-10">
       {/* Header + Campaign Bar */}
-      <header className="border-b border-zinc-200 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+      <header className="border-b border-zinc-200 pb-6 lg:pb-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
         <div className="lg:col-span-7 space-y-3">
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
             Online Giving · MTN MoMo &amp; Airtel Money

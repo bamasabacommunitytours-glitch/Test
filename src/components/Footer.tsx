@@ -9,8 +9,8 @@ export function Footer({ onNavigate }: FooterProps) {
   };
 
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50 text-zinc-600 mt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 md:grid-cols-12 gap-10">
+    <footer className="border-t border-zinc-200 bg-zinc-50 text-zinc-600 mt-8">
+      <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-10 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
         <div className="md:col-span-5 space-y-3">
           <p className="font-serif text-lg font-semibold text-zinc-900">
             HSA Bunyo Dog Rescue
@@ -129,7 +129,7 @@ export function Footer({ onNavigate }: FooterProps) {
       </div>
 
       <div className="border-t border-zinc-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500">
+        <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500">
           <p>© {new Date().getFullYear()} HSA Bunyo Dog Rescue Uganda. Non-profit community sanctuary.</p>
           <p>NGO Reg. WKS-8841 · Wakiso District</p>
         </div>

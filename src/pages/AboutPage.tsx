@@ -25,8 +25,8 @@ const TEAM_MEMBERS = [
 
 export function AboutPage({ onNavigate }: AboutPageProps) {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
-      <header className="max-w-3xl space-y-4 border-b border-zinc-200 pb-10">
+    <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8 lg:py-10 space-y-10 lg:space-y-12">
+      <header className="max-w-3xl space-y-4 border-b border-zinc-200 pb-8">
         <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
           About HSA Bunyo · Est. 2021
         </p>
@@ -52,7 +52,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           </p>
         </div>
 
-        <div className="lg:col-span-6 space-y-2 max-w-md lg:ml-auto w-full">
+        <div className="lg:col-span-6 space-y-2 max-w-lg lg:ml-auto w-full">
           <div className="rounded-lg overflow-hidden border border-zinc-200">
             <ResilientImage
               src={ABOUT_RESCUE_IMAGE_URL}

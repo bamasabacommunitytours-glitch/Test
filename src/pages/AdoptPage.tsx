@@ -34,9 +34,9 @@ export function AdoptPage({ dogs, onNavigate }: AdoptPageProps) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-10">
+    <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8 lg:py-10 space-y-8">
       {/* Page Header */}
-      <header className="border-b border-zinc-200 pb-8 space-y-3">
+      <header className="border-b border-zinc-200 pb-6 space-y-3">
         <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
           Adoption &amp; Foster Directory
         </p>

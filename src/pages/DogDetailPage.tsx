@@ -87,7 +87,7 @@ export function DogDetailPage({ dog, onNavigate, onInquirySubmitted }: DogDetail
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+    <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8 space-y-8">
       <div>
         <button
           type="button"

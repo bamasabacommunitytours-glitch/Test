@@ -31,7 +31,7 @@ export function Navbar({ currentPath, onNavigate }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-8">
+      <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-8">
         {/* Zone 1: Single text element wordmark */}
         <a
           href="/"

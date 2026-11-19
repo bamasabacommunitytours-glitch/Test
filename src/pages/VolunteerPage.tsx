@@ -82,9 +82,9 @@ export function VolunteerPage({
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+    <div className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-8 lg:py-10 space-y-10 lg:space-y-12">
       {/* Header Split */}
-      <header className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch border-b border-zinc-200 pb-12">
+      <header className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch border-b border-zinc-200 pb-8 lg:pb-10">
         <div className="lg:col-span-6 space-y-4 flex flex-col justify-center">
           <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
             Volunteer &amp; Flight-Buddy Program
