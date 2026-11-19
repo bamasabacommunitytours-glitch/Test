@@ -49,6 +49,9 @@ test('currency conversion and formatting handle USD and UGX accurately', () => {
   assert.equal(formatCurrency(240500, 'UGX'), 'UGX 240,500');
   assert.match(getImpactStatement(65), /spay\/neuter/i);
   assert.match(getImpactStatement(350), /Entebbe/i);
+  assert.match(getImpactStatement(350), /3,500\+/);
+  assert.match(getImpactStatement(3500), /complete international export/i);
+  assert.ok(INITIAL_DOGS.every((dog) => dog.internationalTransportUsd >= 3500));
 });
 
 test('Ugandan Mobile Money phone validator validates Airtel Money prefixes', () => {

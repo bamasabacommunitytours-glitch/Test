@@ -145,7 +145,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     goodWithCats: false,
     medicalNotes: 'Neutered, Rabies & DHPP vaccinated, tick-borne panel negative, microchipped.',
     localAdoptionFeeUgx: 150000,
-    internationalTransportUsd: 420,
+    internationalTransportUsd: 3650,
     inquiryCount: 2,
   },
   {
@@ -173,7 +173,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     goodWithCats: false,
     medicalNotes: 'Spayed, Rabies, Parvo & DHPP up to date, routine deworming completed.',
     localAdoptionFeeUgx: 150000,
-    internationalTransportUsd: 480,
+    internationalTransportUsd: 4200,
     inquiryCount: 1,
   },
   {
@@ -201,7 +201,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     goodWithCats: true,
     medicalNotes: 'Full puppy vaccine series completed, microchipped; spay/neuter voucher included at 7 months.',
     localAdoptionFeeUgx: 120000,
-    internationalTransportUsd: 390,
+    internationalTransportUsd: 3500,
     inquiryCount: 3,
   },
   {
@@ -229,7 +229,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     goodWithCats: true,
     medicalNotes: 'Spayed, dental scaling completed, senior bloodwork normal, Rabies & DHPP vaccinated.',
     localAdoptionFeeUgx: 100000,
-    internationalTransportUsd: 420,
+    internationalTransportUsd: 3850,
     inquiryCount: 1,
   },
   {
@@ -257,7 +257,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     goodWithCats: false,
     medicalNotes: 'Spayed after weaning, finishing Babesia treatment, vaccinated and microchipped.',
     localAdoptionFeeUgx: 120000,
-    internationalTransportUsd: 420,
+    internationalTransportUsd: 3750,
     inquiryCount: 0,
   },
   {
@@ -266,7 +266,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     breed: 'Basenji / Village Hound Mix',
     ageLabel: '10 months',
     ageGroup: 'Young',
-    sex: 'Small' === 'Small' ? 'Male' : 'Male',
+    sex: 'Male',
     size: 'Small',
     weightKg: 11,
     location: 'Bunyo Sanctuary, Wakiso',
@@ -285,7 +285,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     goodWithCats: false,
     medicalNotes: 'Neutered, vaccinated (Rabies & DHPP), tick and flea treated, microchipped.',
     localAdoptionFeeUgx: 130000,
-    internationalTransportUsd: 390,
+    internationalTransportUsd: 3500,
     inquiryCount: 1,
   },
 ];
@@ -331,7 +331,7 @@ export const VOLUNTEER_ROLES: VolunteerRole[] = [
     commitment: 'Single flight',
     minStay: 'One-way trip',
     skills: 'Confirmed passenger ticket from EBB to EU, UK, US, or Canada',
-    supportProvided: '100% of airline crate fees, export permits & customs clearance handled by HSA',
+    supportProvided: 'Export permits, IATA crate prep & Entebbe customs clearance coordinated by HSA',
     description:
       'Link an adopted Bunyo dog to your existing passenger itinerary out of Entebbe International Airport so they can travel safely in climate-controlled cargo to their awaiting family.',
   },

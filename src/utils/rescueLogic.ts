@@ -66,8 +66,11 @@ export function formatCurrency(amount: number, currency: 'USD' | 'UGX'): string 
 }
 
 export function getImpactStatement(amountUsd: number): string {
+  if (amountUsd >= 3500) {
+    return 'Sponsors a complete international export relocation ($3,500+), including an IATA travel crate, rabies FAVN titer test, MAAIF export permits, customs clearance, and Entebbe air cargo.';
+  }
   if (amountUsd >= 350) {
-    return 'Funds an Entebbe flight-ready IATA travel crate, export veterinary clearance, and customs paperwork for an adopted dog.';
+    return 'Funds a rabies FAVN blood titer lab shipment or an IATA-compliant travel crate toward Entebbe international rehoming ($3,500+ total export cost).';
   }
   if (amountUsd >= 150) {
     return 'Covers emergency tick-fever diagnostics, IV fluids, antibiotics, and 10 days of clinic recovery care.';

@@ -7,15 +7,31 @@ export function WhatsAppFloatingButton() {
       aria-label="Chat with HSA Bunyo Dog Rescue on WhatsApp (+256704290817)"
       title="Chat on WhatsApp (+256 704 290 817)"
       data-testid="whatsapp-floating-button"
-      className="no-print fixed bottom-5 right-5 z-40 inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white shadow-lg ring-1 ring-black/10 transition-transform duration-150 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#14532D]"
+      className="no-print group fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#14532D] rounded-full"
     >
-      <svg
-        viewBox="0 0 32 32"
-        className="w-7 h-7 fill-current"
-        aria-hidden="true"
-      >
-        <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16.004c0 2.353.615 4.651 1.784 6.678L2.556 29.59l7.075-1.855a13.27 13.27 0 0 0 6.373 1.622h.006c7.361 0 13.337-5.973 13.337-13.337 0-3.563-1.388-6.912-3.908-9.431a13.255 13.255 0 0 0-9.435-3.922Zm0 24.442h-.005a11.06 11.06 0 0 1-5.639-1.545l-.405-.24-4.198 1.101 1.121-4.093-.264-.42a11.05 11.05 0 0 1-1.694-5.908c0-6.115 4.975-11.09 11.093-11.09 2.961 0 5.744 1.155 7.838 3.25a11.018 11.018 0 0 1 3.246 7.845c-.002 6.116-4.978 11.09-11.093 11.09Zm6.085-8.305c-.333-.167-1.973-.974-2.279-1.085-.306-.111-.528-.167-.751.167-.222.333-.862 1.085-1.057 1.308-.194.222-.389.25-.722.083-.333-.167-1.407-.519-2.681-1.655-.991-.884-1.66-1.976-1.855-2.31-.194-.333-.021-.514.146-.68.15-.149.333-.389.5-.583.167-.195.222-.334.333-.556.111-.223.056-.417-.028-.584-.083-.167-.751-1.808-1.029-2.476-.271-.651-.547-.563-.751-.573l-.639-.011c-.223 0-.584.083-.89.417-.306.333-1.168 1.141-1.168 2.782s1.196 3.226 1.363 3.449c.167.222 2.353 3.593 5.7 5.039.796.344 1.418.549 1.902.703.8.254 1.528.218 2.103.132.641-.096 1.973-.807 2.251-1.586.278-.779.278-1.447.194-1.586-.083-.139-.306-.222-.639-.389Z" />
-      </svg>
+      <span className="hidden sm:inline-flex items-center gap-2 bg-white text-zinc-900 border border-zinc-200 shadow-md rounded-lg px-3.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap animate-wa-label group-hover:border-[#25D366] group-hover:text-[#14532D] transition-colors">
+        Chat on WhatsApp
+      </span>
+
+      <span className="relative inline-flex items-center justify-center w-14 h-14 shrink-0">
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full bg-[#25D366] animate-wa-ring pointer-events-none"
+        />
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full bg-[#25D366] animate-wa-ring-delayed pointer-events-none"
+        />
+        <span className="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] group-hover:bg-[#1EBE5D] text-white shadow-lg ring-1 ring-black/10 transition-transform duration-150 group-hover:scale-105 animate-wa-nudge">
+          <svg
+            viewBox="0 0 32 32"
+            className="w-7 h-7 fill-current"
+            aria-hidden="true"
+          >
+            <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16.004c0 2.353.615 4.651 1.784 6.678L2.556 29.59l7.075-1.855a13.27 13.27 0 0 0 6.373 1.622h.006c7.361 0 13.337-5.973 13.337-13.337 0-3.563-1.388-6.912-3.908-9.431a13.255 13.255 0 0 0-9.435-3.922Zm0 24.442h-.005a11.06 11.06 0 0 1-5.639-1.545l-.405-.24-4.198 1.101 1.121-4.093-.264-.42a11.05 11.05 0 0 1-1.694-5.908c0-6.115 4.975-11.09 11.093-11.09 2.961 0 5.744 1.155 7.838 3.25a11.018 11.018 0 0 1 3.246 7.845c-.002 6.116-4.978 11.09-11.093 11.09Zm6.085-8.305c-.333-.167-1.973-.974-2.279-1.085-.306-.111-.528-.167-.751.167-.222.333-.862 1.085-1.057 1.308-.194.222-.389.25-.722.083-.333-.167-1.407-.519-2.681-1.655-.991-.884-1.66-1.976-1.855-2.31-.194-.333-.021-.514.146-.68.15-.149.333-.389.5-.583.167-.195.222-.334.333-.556.111-.223.056-.417-.028-.584-.083-.167-.751-1.808-1.029-2.476-.271-.651-.547-.563-.751-.573l-.639-.011c-.223 0-.584.083-.89.417-.306.333-1.168 1.141-1.168 2.782s1.196 3.226 1.363 3.449c.167.222 2.353 3.593 5.7 5.039.796.344 1.418.549 1.902.703.8.254 1.528.218 2.103.132.641-.096 1.973-.807 2.251-1.586.278-.779.278-1.447.194-1.586-.083-.139-.306-.222-.639-.389Z" />
+          </svg>
+        </span>
+      </span>
     </a>
   );
 }

@@ -41,8 +41,16 @@ function loadInitialState(): PersistedRescueState {
       const raw = fs.readFileSync(STATE_FILE, 'utf-8');
       const parsed = JSON.parse(raw) as PersistedRescueState;
       if (parsed && Array.isArray(parsed.dogs) && parsed.campaign) {
+        const syncedDogs = parsed.dogs.map((dog) => {
+          const seedDog = INITIAL_DOGS.find((s) => s.id === dog.id);
+          if (seedDog && (!dog.internationalTransportUsd || dog.internationalTransportUsd < 3500)) {
+            return { ...dog, internationalTransportUsd: seedDog.internationalTransportUsd };
+          }
+          return dog;
+        });
         return {
           ...parsed,
+          dogs: syncedDogs,
           adoptions: Array.isArray(parsed.adoptions) ? parsed.adoptions : [],
           volunteers: Array.isArray(parsed.volunteers) ? parsed.volunteers : [],
           contacts: Array.isArray(parsed.contacts) ? parsed.contacts : [],

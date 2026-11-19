@@ -165,9 +165,14 @@ export function DogDetailPage({ dog, onNavigate, onInquirySubmitted }: DogDetail
               </div>
               <div className="py-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <dt className="text-zinc-500">Adoption Contribution</dt>
-                <dd className="sm:col-span-2 text-zinc-900 tabular-nums">
-                  {formatCurrency(dog.localAdoptionFeeUgx, 'UGX')} (Uganda local) ·{' '}
-                  {formatCurrency(dog.internationalTransportUsd, 'USD')} (International export &amp; crate prep)
+                <dd className="sm:col-span-2 space-y-1 text-zinc-900 tabular-nums">
+                  <p>
+                    {formatCurrency(dog.localAdoptionFeeUgx, 'UGX')} (Uganda local) ·{' '}
+                    {formatCurrency(dog.internationalTransportUsd, 'USD')}+ (International export &amp; crate prep)
+                  </p>
+                  <p className="text-xs text-zinc-500">
+                    Includes IATA travel crate, rabies FAVN titer test &amp; courier, MAAIF export permits, customs clearance, and Entebbe air transport (final quote varies by destination &amp; weight).
+                  </p>
                 </dd>
               </div>
             </dl>
