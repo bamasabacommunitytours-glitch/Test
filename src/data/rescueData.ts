@@ -1,16 +1,10 @@
-export type DogSize = 'Small' | 'Medium' | 'Large';
-export type DogAgeGroup = 'Puppy' | 'Young' | 'Adult' | 'Senior';
 export type PlacementStatus = 'Ready for Adoption' | 'Medical Foster';
 
 export interface DogProfile {
   id: string;
   name: string;
   breed: string;
-  ageLabel: string;
-  ageGroup: DogAgeGroup;
   sex: 'Male' | 'Female';
-  size: DogSize;
-  weightKg: number;
   location: string;
   intakeDate: string;
   microchipId: string;
@@ -115,35 +109,33 @@ export const CONTACT_TOPICS = [
 ] as const;
 
 export const HERO_IMAGE_URL = '/src/assets/images/fig.%201.jpeg';
-export const CLINIC_IMAGE_URL = '/src/assets/images/fig.2.avif';
-export const VOLUNTEER_IMAGE_URL = '/src/assets/images/fig%204.avif';
-export const ABOUT_RESCUE_IMAGE_URL = '/src/assets/images/fig%205.webp';
+export const CLINIC_IMAGE_URL = '/src/assets/images/field_rescue_vet_1795217209835.jpg';
+export const KENNEL_PUPS_IMAGE_URL = '/src/assets/images/kennel_pups_clean_1795217209466.jpg';
+export const VOLUNTEER_IMAGE_URL = '/src/assets/images/volunteer_team_edit_1795216566349.jpg';
+export const ABOUT_RESCUE_IMAGE_URL = '/src/assets/images/field_rescue_vet_1795217209835.jpg';
+export const OUTREACH_CLINIC_IMAGE_URL = '/src/assets/images/community_clinic_outreach_1795217218643.jpg';
 
 export const INITIAL_DOGS: DogProfile[] = [
   {
     id: 'kato',
     name: 'Kato',
     breed: 'Ugandan Basenji Mix',
-    ageLabel: '10 months',
-    ageGroup: 'Young',
     sex: 'Male',
-    size: 'Medium',
-    weightKg: 12,
     location: 'Bunyo Sanctuary, Wakiso',
     intakeDate: 'March 2026',
     microchipId: 'UG-BNY-2026-014',
     status: 'Ready for Adoption',
-    imageUrl: '/src/assets/images/kato.avif',
-    imageCaption: 'Kato during early community socialization in Wakiso.',
-    imagePosition: 'object-[50%_58%]',
+    imageUrl: '/src/assets/images/kato_dog_only_1795216969036.jpg',
+    imageCaption: 'Kato resting on the grass lawn at our Wakiso sanctuary compound.',
+    imagePosition: 'object-center',
     summary: 'Alert, affectionate black-and-tan Basenji mix who thrives on gentle play, daily walks, and family companionship.',
     story:
-      'Rescued near the Kasenyi landing site as a young pup with an old rope mark around his shoulder, Kato healed quickly with our Wakiso caretakers. He has blossomed into an affectionate, steady companion who adores children, walks calmly on a leash, and settles easily beside desks or porches.',
+      'Rescued near the Kasenyi landing site with an old rope mark around his shoulder, Kato healed quickly with our Wakiso caretakers. He has blossomed into an affectionate, steady companion who enjoys children, walks calmly on a leash, and settles easily beside desks or porches.',
     temperament: ['Leash trained', 'Gentle with children', 'Calm indoors'],
     goodWithKids: true,
     goodWithDogs: true,
     goodWithCats: false,
-    medicalNotes: 'Neutered, Rabies & DHPP vaccinated, tick-borne panel negative, microchipped.',
+    medicalNotes: 'Rabies & DHPP vaccinated, tick-borne panel negative, routine deworming completed, microchipped.',
     localAdoptionFeeUgx: 150000,
     internationalTransportUsd: 3650,
     inquiryCount: 2,
@@ -152,11 +144,7 @@ export const INITIAL_DOGS: DogProfile[] = [
     id: 'nambi',
     name: 'Nambi',
     breed: 'Africanis / Ridgeback Mix',
-    ageLabel: '14 months',
-    ageGroup: 'Young',
     sex: 'Female',
-    size: 'Large',
-    weightKg: 23,
     location: 'Bunyo Sanctuary, Wakiso',
     intakeDate: 'May 2026',
     microchipId: 'UG-BNY-2026-029',
@@ -164,14 +152,14 @@ export const INITIAL_DOGS: DogProfile[] = [
     imageUrl: '/src/assets/images/nambi.jpg',
     imageCaption: 'Nambi resting on the painted stone verandah at Bunyo Sanctuary.',
     imagePosition: 'object-[50%_68%]',
-    summary: 'Graceful, observant young female with a mellow temperament, ideal for a home with a fenced yard or active walker.',
+    summary: 'Graceful, observant companion with a mellow temperament, ideal for a home with a fenced yard or active walker.',
     story:
-      'Rescued as an underweight stray outside Mpigi town, Nambi quickly showed a remarkably protective yet polite nature. She adores morning runs across the compound and sits attentively for papaya and peanut treats. She pairs especially well with confident resident dogs or families wanting a loyal walking partner.',
-    temperament: ['Good with dogs', 'Enjoys hiking', 'Quick learner'],
+      'Rescued outside Mpigi town, Nambi quickly showed a remarkably polite and attentive nature. She enjoys morning play across the compound and sits attentively for papaya and peanut treats. She pairs especially well with confident resident dogs or families wanting a loyal walking partner.',
+    temperament: ['Good with dogs', 'Enjoys outdoors', 'Quick learner'],
     goodWithKids: true,
     goodWithDogs: true,
     goodWithCats: false,
-    medicalNotes: 'Spayed, Rabies, Parvo & DHPP up to date, routine deworming completed.',
+    medicalNotes: 'Rabies, Parvo & DHPP up to date, routine deworming completed, microchipped.',
     localAdoptionFeeUgx: 150000,
     internationalTransportUsd: 4200,
     inquiryCount: 1,
@@ -179,12 +167,8 @@ export const INITIAL_DOGS: DogProfile[] = [
   {
     id: 'rwenzori',
     name: 'Rwenzori',
-    breed: 'Ugandan Village Terrier Mix',
-    ageLabel: '5 months',
-    ageGroup: 'Puppy',
+    breed: 'Ugandan Village Hound Mix',
     sex: 'Male',
-    size: 'Small',
-    weightKg: 8,
     location: 'Kampala Foster Home',
     intakeDate: 'August 2026',
     microchipId: 'UG-BNY-2026-051',
@@ -192,14 +176,14 @@ export const INITIAL_DOGS: DogProfile[] = [
     imageUrl: '/src/assets/images/rwenzori%20.jpeg',
     imageCaption: 'Rwenzori greeting morning caretakers from the green sanctuary enclosure.',
     imagePosition: 'object-[50%_45%]',
-    summary: 'Curious fawn-coated puppy learning crate manners and basic cues in foster care; expected to stay small-to-medium.',
+    summary: 'Curious fawn-coated village hound learning house manners and basic cues in foster care; affectionate and eager to bond.',
     story:
-      'Rwenzori and his sister were surrendered during a community outreach clinic near Entebbe Road when their mother fell ill. Placed with an experienced foster family in Muyenga, he sleeps through the night, plays happily with children and resident cats, and already responds reliably to recall.',
+      'Rwenzori came into our care during a community outreach clinic near Entebbe Road when his caretaker relocated. Placed with an experienced foster family in Muyenga, he sleeps calmly through the night, gets along happily with children and resident cats, and responds reliably to recall.',
     temperament: ['Good with cats', 'Good with kids', 'Crate comfortable'],
     goodWithKids: true,
     goodWithDogs: true,
     goodWithCats: true,
-    medicalNotes: 'Full puppy vaccine series completed, microchipped; spay/neuter voucher included at 7 months.',
+    medicalNotes: 'Neutered, full Rabies & DHPP vaccine series completed, routine deworming, microchipped.',
     localAdoptionFeeUgx: 120000,
     internationalTransportUsd: 3500,
     inquiryCount: 3,
@@ -208,26 +192,22 @@ export const INITIAL_DOGS: DogProfile[] = [
     id: 'amara',
     name: 'Amara',
     breed: 'Ugandan Shepherd Mix',
-    ageLabel: '7 years',
-    ageGroup: 'Senior',
     sex: 'Female',
-    size: 'Medium',
-    weightKg: 19,
     location: 'Bunyo Sanctuary, Wakiso',
     intakeDate: 'January 2026',
     microchipId: 'UG-BNY-2026-004',
     status: 'Ready for Adoption',
-    imageUrl: '/src/assets/images/amara.avif',
-    imageCaption: 'Amara enjoying quiet company during afternoon sanctuary rounds.',
-    imagePosition: 'object-[50%_65%]',
-    summary: 'Serene senior companion seeking a peaceful home with short daily strolls and soft bedding.',
+    imageUrl: '/src/assets/images/amara_dog_only_1795216966446.jpg',
+    imageCaption: 'Amara relaxing on the concrete verandah step during afternoon sanctuary rounds.',
+    imagePosition: 'object-center',
+    summary: 'Gentle, observant companion seeking a loving home with quiet daily routines and soft bedding.',
     story:
-      'Amara faithfully guarded a rural homestead in Wakiso until her elderly owner passed away and no relatives could take her in. She is low-energy, deeply affectionate, and wonderfully patient with toddlers and older adults alike. She asks for little more than a shaded verandah and steady company.',
-    temperament: ['Low energy', 'House-trained', 'Senior sweetheart'],
+      'Rescued from a quiet rural compound in Wakiso after being left behind when her owners moved away, Amara quickly won over our caretakers with her calm, observant nature. She is deeply affectionate, wonderfully patient around children and other dogs, and loves resting on a shaded verandah.',
+    temperament: ['Gentle nature', 'House-trained', 'Calm indoors'],
     goodWithKids: true,
     goodWithDogs: true,
     goodWithCats: true,
-    medicalNotes: 'Spayed, dental scaling completed, senior bloodwork normal, Rabies & DHPP vaccinated.',
+    medicalNotes: 'Rabies & DHPP vaccinated, routine deworming completed, tick-borne panel negative, microchipped.',
     localAdoptionFeeUgx: 100000,
     internationalTransportUsd: 3850,
     inquiryCount: 1,
@@ -236,26 +216,22 @@ export const INITIAL_DOGS: DogProfile[] = [
     id: 'mirembe',
     name: 'Mirembe',
     breed: 'East African Village Hound',
-    ageLabel: '3 years',
-    ageGroup: 'Adult',
     sex: 'Female',
-    size: 'Medium',
-    weightKg: 16,
     location: 'Bunyo Clinic Wing',
     intakeDate: 'September 2026',
     microchipId: 'UG-BNY-2026-063',
     status: 'Medical Foster',
-    imageUrl: '/src/assets/images/fig%207.jpeg',
-    imageCaption: 'Mirembe receiving gentle reassurance from caretaker Samuel at Bunyo.',
-    imagePosition: 'object-top',
-    summary: 'Sweet-natured mother dog finishing tick-fever recovery; available for local foster-to-adopt or medical sponsorship.',
+    imageUrl: '/src/assets/images/mirembe_dog_only_1795216966298.jpg',
+    imageCaption: 'Mirembe sitting calmly outside the clinic wing at Bunyo Sanctuary.',
+    imagePosition: 'object-center',
+    summary: 'Sweet-natured dog finishing tick-fever recovery; available for local foster-to-adopt or medical sponsorship.',
     story:
-      'Brought to our Saturday mobile clinic by concerned market vendors in Katabi, Mirembe arrived severely anemic from tick fever while nursing three pups. Her puppies have since thrived, and Mirembe is completing her final two weeks of iron and doxycycline therapy. She greets every vet technician with gentle kisses.',
+      'Brought to our Saturday mobile clinic by concerned market vendors in Katabi, Mirembe arrived severely anemic from tick fever while caring for her litter. Her pups have since thrived, and Mirembe is completing her final two weeks of iron and doxycycline therapy. She greets every vet technician gently.',
     temperament: ['Affectionate', 'Calm at vet', 'Good with dogs'],
     goodWithKids: true,
     goodWithDogs: true,
     goodWithCats: false,
-    medicalNotes: 'Spayed after weaning, finishing Babesia treatment, vaccinated and microchipped.',
+    medicalNotes: 'Spayed after recovery, finishing Babesia treatment, vaccinated and microchipped.',
     localAdoptionFeeUgx: 120000,
     internationalTransportUsd: 3750,
     inquiryCount: 0,
@@ -264,26 +240,22 @@ export const INITIAL_DOGS: DogProfile[] = [
     id: 'bukenya',
     name: 'Bukenya',
     breed: 'Basenji / Village Hound Mix',
-    ageLabel: '10 months',
-    ageGroup: 'Young',
     sex: 'Male',
-    size: 'Small',
-    weightKg: 11,
     location: 'Bunyo Sanctuary, Wakiso',
     intakeDate: 'October 2026',
     microchipId: 'UG-BNY-2026-071',
     status: 'Medical Foster',
-    imageUrl: '/src/assets/images/fig%206.jpg',
-    imageCaption: 'Bukenya being held in the sanctuary courtyard after his morning walk.',
-    imagePosition: 'object-[50%_82%]',
-    summary: 'Compact black-and-white young hound gaining confidence in group play; thrives alongside another playful dog.',
+    imageUrl: '/src/assets/images/bukenya_dog_only_1795216966770.jpg',
+    imageCaption: 'Bukenya in the red-earth sanctuary courtyard after his morning walk.',
+    imagePosition: 'object-center',
+    summary: 'Playful black-and-tan hound gaining confidence in group play; thrives alongside another friendly dog.',
     story:
-      'Rescued from a storm drain near Kajjansi during October rains, Bukenya is compact, agile, and eager to learn. He follows our sanctuary caretaker everywhere and enjoys gentle agility games in the morning paddock. He is ready for a patient foster-to-adopt family in Kampala or Entebbe.',
-    temperament: ['Playful', 'Compact size', 'Learns quickly'],
+      'Rescued from a storm drain near Kajjansi during October rains, Bukenya is agile, curious, and eager to learn. He follows our sanctuary caretaker everywhere and enjoys gentle games in the morning paddock. He is ready for a patient foster-to-adopt family in Kampala or Entebbe.',
+    temperament: ['Playful', 'Friendly with dogs', 'Learns quickly'],
     goodWithKids: true,
     goodWithDogs: true,
     goodWithCats: false,
-    medicalNotes: 'Neutered, vaccinated (Rabies & DHPP), tick and flea treated, microchipped.',
+    medicalNotes: 'Vaccinated (Rabies & DHPP), tick and flea treated, routine deworming, microchipped.',
     localAdoptionFeeUgx: 130000,
     internationalTransportUsd: 3500,
     inquiryCount: 1,

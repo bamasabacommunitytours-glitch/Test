@@ -1,10 +1,9 @@
-import type { DogAgeGroup, DogProfile, DogSize } from '../data/rescueData.js';
+import type { DogProfile, PlacementStatus } from '../data/rescueData.js';
 
 export const USD_TO_UGX_RATE = 3700;
 
 export interface DogFilterCriteria {
-  size: DogSize | 'All';
-  ageGroup: DogAgeGroup | 'All';
+  status: PlacementStatus | 'All';
   compatibility: 'All' | 'Kids' | 'Dogs' | 'Cats';
   query: string;
 }
@@ -13,10 +12,7 @@ export function filterDogs(dogs: DogProfile[], criteria: DogFilterCriteria): Dog
   const normalizedQuery = criteria.query.trim().toLowerCase();
 
   return dogs.filter((dog) => {
-    if (criteria.size !== 'All' && dog.size !== criteria.size) {
-      return false;
-    }
-    if (criteria.ageGroup !== 'All' && dog.ageGroup !== criteria.ageGroup) {
+    if (criteria.status !== 'All' && dog.status !== criteria.status) {
       return false;
     }
     if (criteria.compatibility === 'Kids' && !dog.goodWithKids) {

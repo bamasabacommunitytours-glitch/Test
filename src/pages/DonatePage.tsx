@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { CheckCircle2, Lock, Printer, ShieldCheck } from 'lucide-react';
-import type { CampaignSummary, DonationRecord } from '../data/rescueData';
+import {
+  KENNEL_PUPS_IMAGE_URL,
+  type CampaignSummary,
+  type DonationRecord,
+} from '../data/rescueData';
 import {
   convertUgxToUsd,
   convertUsdToUgx,
@@ -11,6 +15,7 @@ import {
   type ValidationErrors,
 } from '../utils/rescueLogic';
 import { postApiJson } from '../utils/apiClient';
+import { ResilientImage } from '../components/ResilientImage';
 
 interface DonatePageProps {
   campaign: CampaignSummary;
@@ -486,8 +491,21 @@ export function DonatePage({
           )}
         </div>
 
-        {/* Right Column: Trust Guarantees & Live Recent Supporters */}
+        {/* Right Column: Sanctuary Photo, Trust Guarantees & Live Recent Supporters */}
         <aside className="lg:col-span-5 space-y-6">
+          <div className="border border-zinc-200 rounded-lg bg-white overflow-hidden">
+            <ResilientImage
+              src={KENNEL_PUPS_IMAGE_URL}
+              alt="Three rescued puppies at Bunyo Sanctuary looking out from their clean shaded kennel"
+              aspectClassName="aspect-[4/3]"
+              className="w-full h-full object-cover object-center"
+              fallbackTitle="Bunyo Sanctuary Pups"
+            />
+            <p className="text-xs text-zinc-600 p-4 border-t border-zinc-100">
+              Every contribution funds daily nutritious meals, tick-fever care, and shaded kennel housing for rescued puppies at our Wakiso sanctuary.
+            </p>
+          </div>
+
           <div className="border border-zinc-200 rounded-lg bg-zinc-50 p-6 space-y-4">
             <div className="flex items-center gap-2 text-zinc-900 font-semibold text-sm">
               <ShieldCheck className="w-5 h-5 text-[#14532D]" aria-hidden="true" />

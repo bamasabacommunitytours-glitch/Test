@@ -3,6 +3,7 @@ import {
   CLINIC_IMAGE_URL,
   FIELD_PROGRAMS,
   HERO_IMAGE_URL,
+  KENNEL_PUPS_IMAGE_URL,
   type CampaignSummary,
   type DogProfile,
 } from '../data/rescueData';
@@ -146,8 +147,7 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
                     </span>
                   </div>
                   <p className="text-xs text-zinc-500">
-                    {dog.ageLabel} <span aria-hidden="true">·</span> {dog.sex}{' '}
-                    <span aria-hidden="true">·</span> {dog.size}
+                    {dog.breed} <span aria-hidden="true">·</span> {dog.sex}
                   </p>
                   <p className="text-sm text-zinc-600 leading-relaxed line-clamp-3">
                     {dog.summary}
@@ -183,17 +183,17 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
               <p className="text-base sm:text-lg text-zinc-600 leading-relaxed">
                 Long-term change in Wakiso District requires more than kennels. Our Ugandan veterinary team travels monthly to nearby trading centers to treat tick fever, vaccinate against rabies, and offer free spay and neuter surgeries.
               </p>
-              <div className="pt-2 rounded-lg overflow-hidden border border-zinc-200 bg-white">
+              <div className="pt-2 rounded-lg overflow-hidden border border-zinc-200 bg-white max-w-md">
                 <ResilientImage
                   src={CLINIC_IMAGE_URL}
-                  alt="Caretaker in medical gloves applying antiseptic wound care to a rescued tan dog at HSA Bunyo"
-                  aspectClassName="aspect-[16/10]"
-                  className="w-full h-full object-cover object-center"
-                  fallbackTitle="Wakiso Community Vet Clinic"
+                  alt="HSA Bunyo veterinarian in teal scrubs cradling three rescued puppies beside their mother in Wakiso"
+                  aspectClassName="aspect-[4/5]"
+                  className="w-full h-full object-cover object-[50%_20%]"
+                  fallbackTitle="Wakiso Field Rescue & Vet Care"
                 />
               </div>
               <p className="text-xs text-zinc-500 italic font-serif">
-                Fig. 2 — Topical wound treatment and daily nutrition at our Bunyo Sanctuary clinic.
+                Fig. 2 — Field rescue and veterinary triage for a street mother and her three puppies in Wakiso District.
               </p>
             </div>
 
@@ -224,7 +224,19 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
       {/* Transparent Medical & Sanctuary Appeal */}
       <section className="max-w-[1760px] w-full mx-auto px-4 sm:px-6 lg:px-10 py-10 lg:py-12">
         <div className="border border-zinc-200 rounded-lg bg-white p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-3">
+          <div className="lg:col-span-3">
+            <div className="rounded-lg overflow-hidden border border-zinc-200 bg-zinc-100">
+              <ResilientImage
+                src={KENNEL_PUPS_IMAGE_URL}
+                alt="Three rescued Ugandan puppies peering through the sanctuary kennel gate"
+                aspectClassName="aspect-[4/3]"
+                className="w-full h-full object-cover object-center"
+                fallbackTitle="Rescued Puppies at Bunyo"
+              />
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 space-y-3">
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
               Active Sanctuary Appeal
             </p>
@@ -236,7 +248,7 @@ export function HomePage({ dogs, campaign, onNavigate }: HomePageProps) {
             </p>
           </div>
 
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             <div className="flex items-baseline justify-between text-sm">
               <span className="font-mono font-semibold text-zinc-900 tabular-nums">
                 {formatCurrency(campaign.raisedUsd, 'USD')} raised

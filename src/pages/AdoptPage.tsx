@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Search, RotateCcw } from 'lucide-react';
-import type { DogAgeGroup, DogProfile, DogSize } from '../data/rescueData';
+import type { DogProfile, PlacementStatus } from '../data/rescueData';
 import { filterDogs } from '../utils/rescueLogic';
 import { ResilientImage } from '../components/ResilientImage';
 
@@ -9,26 +9,27 @@ interface AdoptPageProps {
   onNavigate: (path: string) => void;
 }
 
-const SIZE_OPTIONS: Array<DogSize | 'All'> = ['All', 'Small', 'Medium', 'Large'];
-const AGE_OPTIONS: Array<DogAgeGroup | 'All'> = ['All', 'Puppy', 'Young', 'Adult', 'Senior'];
+const STATUS_OPTIONS: Array<PlacementStatus | 'All'> = [
+  'All',
+  'Ready for Adoption',
+  'Medical Foster',
+];
 
 export function AdoptPage({ dogs, onNavigate }: AdoptPageProps) {
-  const [size, setSize] = useState<DogSize | 'All'>('All');
-  const [ageGroup, setAgeGroup] = useState<DogAgeGroup | 'All'>('All');
+  const [status, setStatus] = useState<PlacementStatus | 'All'>('All');
   const [compatibility, setCompatibility] = useState<'All' | 'Kids' | 'Dogs' | 'Cats'>('All');
   const [query, setQuery] = useState('');
 
   const filteredDogs = useMemo(
-    () => filterDogs(dogs, { size, ageGroup, compatibility, query }),
-    [dogs, size, ageGroup, compatibility, query]
+    () => filterDogs(dogs, { status, compatibility, query }),
+    [dogs, status, compatibility, query]
   );
 
   const hasActiveFilters =
-    size !== 'All' || ageGroup !== 'All' || compatibility !== 'All' || query.trim() !== '';
+    status !== 'All' || compatibility !== 'All' || query.trim() !== '';
 
   const resetFilters = () => {
-    setSize('All');
-    setAgeGroup('All');
+    setStatus('All');
     setCompatibility('All');
     setQuery('');
   };
@@ -51,18 +52,18 @@ export function AdoptPage({ dogs, onNavigate }: AdoptPageProps) {
       {/* Interactive Filter Controls */}
       <section aria-label="Filter adoptable dogs" className="bg-zinc-50 border border-zinc-200 rounded-lg p-5 space-y-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">
-          {/* Size segmented control */}
-          <div className="lg:col-span-4 space-y-1.5">
-            <span className="block text-xs font-medium text-zinc-700">Size</span>
-            <div className="inline-flex w-full bg-white border border-zinc-200 rounded-md p-1 gap-1" role="group" aria-label="Filter by dog size">
-              {SIZE_OPTIONS.map((opt) => (
+          {/* Placement Status segmented control */}
+          <div className="lg:col-span-5 space-y-1.5">
+            <span className="block text-xs font-medium text-zinc-700">Placement Status</span>
+            <div className="inline-flex w-full bg-white border border-zinc-200 rounded-md p-1 gap-1" role="group" aria-label="Filter by placement status">
+              {STATUS_OPTIONS.map((opt) => (
                 <button
                   key={opt}
                   type="button"
-                  onClick={() => setSize(opt)}
-                  aria-pressed={size === opt}
+                  onClick={() => setStatus(opt)}
+                  aria-pressed={status === opt}
                   className={`flex-1 px-3 py-1.5 text-xs font-medium rounded transition-colors whitespace-nowrap cursor-pointer ${
-                    size === opt
+                    status === opt
                       ? 'bg-[#14532D] text-white'
                       : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100'
                   }`}
@@ -73,27 +74,8 @@ export function AdoptPage({ dogs, onNavigate }: AdoptPageProps) {
             </div>
           </div>
 
-          {/* Age Group select */}
-          <div className="lg:col-span-3 space-y-1.5">
-            <label htmlFor="adopt-age-filter" className="block text-xs font-medium text-zinc-700">
-              Age Stage
-            </label>
-            <select
-              id="adopt-age-filter"
-              value={ageGroup}
-              onChange={(e) => setAgeGroup(e.target.value as DogAgeGroup | 'All')}
-              className="w-full h-9 px-3 text-sm bg-white border border-zinc-200 rounded-md text-zinc-900"
-            >
-              {AGE_OPTIONS.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt === 'All' ? 'All ages' : opt}
-                </option>
-              ))}
-            </select>
-          </div>
-
           {/* Household Compatibility select */}
-          <div className="lg:col-span-2 space-y-1.5">
+          <div className="lg:col-span-3 space-y-1.5">
             <label htmlFor="adopt-compat-filter" className="block text-xs font-medium text-zinc-700">
               Good With
             </label>
@@ -113,7 +95,7 @@ export function AdoptPage({ dogs, onNavigate }: AdoptPageProps) {
           </div>
 
           {/* Search input */}
-          <div className="lg:col-span-3 space-y-1.5">
+          <div className="lg:col-span-4 space-y-1.5">
             <label htmlFor="adopt-search" className="block text-xs font-medium text-zinc-700">
               Search Name or Trait
             </label>
@@ -195,9 +177,7 @@ export function AdoptPage({ dogs, onNavigate }: AdoptPageProps) {
 
                   {/* Clean unboxed metadata */}
                   <p className="text-xs text-zinc-500">
-                    {dog.breed} <span aria-hidden="true">·</span> {dog.ageLabel}{' '}
-                    <span aria-hidden="true">·</span> {dog.sex}{' '}
-                    <span aria-hidden="true">·</span> {dog.weightKg} kg
+                    {dog.breed} <span aria-hidden="true">·</span> {dog.sex}
                   </p>
 
                   <p className="text-sm text-zinc-600 leading-relaxed">

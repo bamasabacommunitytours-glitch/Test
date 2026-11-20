@@ -111,9 +111,7 @@ export function DogDetailPage({ dog, onNavigate, onInquirySubmitted }: DogDetail
               {dog.name}
             </h1>
             <p className="text-sm text-zinc-500">
-              {dog.breed} <span aria-hidden="true">·</span> {dog.ageLabel}{' '}
-              <span aria-hidden="true">·</span> {dog.sex} <span aria-hidden="true">·</span>{' '}
-              {dog.weightKg} kg
+              {dog.breed} <span aria-hidden="true">·</span> {dog.sex}
             </p>
           </div>
 
@@ -171,7 +169,7 @@ export function DogDetailPage({ dog, onNavigate, onInquirySubmitted }: DogDetail
                     {formatCurrency(dog.internationalTransportUsd, 'USD')}+ (International export &amp; crate prep)
                   </p>
                   <p className="text-xs text-zinc-500">
-                    Includes IATA travel crate, rabies FAVN titer test &amp; courier, MAAIF export permits, customs clearance, and Entebbe air transport (final quote varies by destination &amp; weight).
+                    Includes IATA travel crate, rabies FAVN titer test &amp; courier, MAAIF export permits, customs clearance, and Entebbe air transport (final quote varies by destination &amp; airline route).
                   </p>
                 </dd>
               </div>

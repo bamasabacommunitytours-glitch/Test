@@ -14,28 +14,25 @@ import {
   validateVolunteerApplication,
 } from './rescueLogic.js';
 
-test('filterDogs filters accurately by size, age, compatibility, and search query', () => {
-  const mediumDogs = filterDogs(INITIAL_DOGS, {
-    size: 'Medium',
-    ageGroup: 'All',
+test('filterDogs filters accurately by status, compatibility, and search query', () => {
+  const fosterDogs = filterDogs(INITIAL_DOGS, {
+    status: 'Medical Foster',
     compatibility: 'All',
     query: '',
   });
-  assert.equal(mediumDogs.length, 3);
-  assert.ok(mediumDogs.every((d) => d.size === 'Medium'));
+  assert.equal(fosterDogs.length, 2);
+  assert.ok(fosterDogs.every((d) => d.status === 'Medical Foster'));
 
-  const catFriendlyPuppies = filterDogs(INITIAL_DOGS, {
-    size: 'All',
-    ageGroup: 'Puppy',
+  const catFriendlyDogs = filterDogs(INITIAL_DOGS, {
+    status: 'All',
     compatibility: 'Cats',
     query: '',
   });
-  assert.equal(catFriendlyPuppies.length, 1);
-  assert.equal(catFriendlyPuppies[0].id, 'rwenzori');
+  assert.equal(catFriendlyDogs.length, 2);
+  assert.ok(catFriendlyDogs.some((d) => d.id === 'rwenzori'));
 
   const queryMatch = filterDogs(INITIAL_DOGS, {
-    size: 'All',
-    ageGroup: 'All',
+    status: 'All',
     compatibility: 'All',
     query: 'basenji',
   });

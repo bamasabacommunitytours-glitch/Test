@@ -1,4 +1,4 @@
-import { ABOUT_RESCUE_IMAGE_URL } from '../data/rescueData';
+import { ABOUT_RESCUE_IMAGE_URL, OUTREACH_CLINIC_IMAGE_URL } from '../data/rescueData';
 import { ResilientImage } from '../components/ResilientImage';
 
 interface AboutPageProps {
@@ -110,6 +110,36 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
               Annual Ugandan NGO registration audits, payment gateway fees, and export permit paperwork.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Community Vaccination & Parish Outreach */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="lg:col-span-6 space-y-2">
+          <div className="rounded-lg overflow-hidden border border-zinc-200">
+            <ResilientImage
+              src={OUTREACH_CLINIC_IMAGE_URL}
+              alt="HSA Bunyo community outreach volunteer seated beside vaccinated village dogs during a mobile clinic in Wakiso"
+              aspectClassName="aspect-[4/3]"
+              className="w-full h-full object-cover object-center"
+              fallbackTitle="Wakiso Parish Rabies Outreach"
+            />
+          </div>
+          <p className="text-xs text-zinc-500 italic font-serif">
+            Fig. 4 — Monthly community rabies vaccination and wellness camp across Wakiso District parishes.
+          </p>
+        </div>
+
+        <div className="lg:col-span-6 space-y-4 max-w-prose">
+          <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
+            Community Prevention
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-zinc-900">
+            Free vaccination days across 14 Wakiso parishes
+          </h2>
+          <p className="text-base text-zinc-700 leading-relaxed">
+            Preventive medicine protects both dogs and neighbors. Once a month, our field team sets up shaded mobile stations where families bring village dogs for free rabies shots, deworming, collar fittings, and humane sterilization scheduling—building long-term trust instead of fear.
+          </p>
         </div>
       </section>
 
